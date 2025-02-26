@@ -1,11 +1,12 @@
 package com.example.myapplicationlogin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,10 @@ class MainActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             if (name.isNotEmpty() && password.isNotEmpty()) {
-                // Navigasi ke MainActivity dengan membawa data nama
+                // Log email (username) ke Logcat
+                Log.d("LoginActivity", "Email yang dimasukkan: $name")
+
+                // Navigasi ke MainActivity2 dengan membawa data nama
                 val intent = Intent(this, MainActivity2::class.java)
                 intent.putExtra("USER_NAME", name)
                 startActivity(intent)
